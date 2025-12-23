@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+
 
 const fs = require('fs');
 const path = require('path');
@@ -16,7 +16,7 @@ if (!fs.existsSync(assetsPath)) {
 }
 
 // 3. CSS dosyasını kopyala
-const sourceCss = path.join(__dirname, 'css/test.css');
+const sourceCss = path.join(__dirname, 'test.css');
 const targetCss = path.join(assetsPath, 'test.css');
 
 try {
@@ -32,8 +32,8 @@ const themeLiquidPath = path.join(currentDir, 'layout/theme.liquid');
 if (fs.existsSync(themeLiquidPath)) {
   const themeContent = fs.readFileSync(themeLiquidPath, 'utf8');
   
-  if (!themeContent.includes('base.css')) {
-    const newLink = '\n  {{ "base.css" | asset_url | stylesheet_tag }}';
+  if (!themeContent.includes('test.css')) {
+    const newLink = '\n  {{ "test.css" | asset_url | stylesheet_tag }}';
     const updatedContent = themeContent.replace('</head>', newLink + '\n  </head>');
     
     fs.writeFileSync(themeLiquidPath, updatedContent);
