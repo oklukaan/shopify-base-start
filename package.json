@@ -1,0 +1,7 @@
+{
+  "name": "shopify-base-start",
+  "version": "1.0.0",
+  "bin": {
+    "shopify-base-start": "bin/index.js"
+  }
+}
